@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Institute Settings</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="app">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-small">
+                🎓
+            </div>
+
+            <div>
+                <strong>Exam System</strong>
+                <small>Teacher Panel</small>
+            </div>
+
+        </div>
+
+        <nav>
+
+            <a href="dashboard.html"
+               class="nav-link">
+
+                🏠 Dashboard
+
+            </a>
+
+            <a href="students.html"
+               class="nav-link">
+
+                👨‍🎓 Students
+
+            </a>
+
+            <a href="#"
+               class="nav-link disabled">
+
+                📝 Exams
+                <span>Coming</span>
+
+            </a>
+
+            <a href="#"
+               class="nav-link disabled">
+
+                📊 Marks Entry
+                <span>Coming</span>
+
+            </a>
+
+            <a href="#"
+               class="nav-link disabled">
+
+                📋 Results
+                <span>Coming</span>
+
+            </a>
+
+            <a href="settings.html"
+               class="nav-link active">
+
+                ⚙️ Institute Settings
+
+            </a>
+
+        </nav>
+
+        <button id="logoutBtn"
+                class="logout-btn">
+
+            🚪 Logout
+
+        </button>
+
+    </aside>
+
+
+    <main class="main">
+
+        <header class="topbar">
+
+            <div>
+
+                <h2>Institute Settings</h2>
+
+                <p>
+                    Configure your institution
+                </p>
+
+            </div>
+
+        </header>
+
+
+        <section class="content">
+
+            <div class="panel settings-panel">
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h3>
+                            Institute Information
+                        </h3>
+
+                        <p>
+                            These details will later
+                            appear on result marksheets.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <form id="settingsForm">
+
+                    <div class="form-grid">
+
+
+                        <div class="form-group full">
+
+                            <label>
+                                Institute Name *
+                            </label>
+
+                            <input
+                                id="instituteName"
+                                required
+                                placeholder="ABC College">
+
+                        </div>
+
+
+                        <div class="form-group full">
+
+                            <label>
+                                Address *
+                            </label>
+
+                            <textarea
+                                id="instituteAddress"
+                                rows="3"
+                                required
+                                placeholder="Full institute address">
+                            </textarea>
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                City
+                            </label>
+
+                            <input
+                                id="city"
+                                placeholder="Kolkata">
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                State
+                            </label>
+
+                            <input
+                                id="state"
+                                placeholder="West Bengal">
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Contact Number
+                            </label>
+
+                            <input
+                                id="contact">
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Website
+                            </label>
+
+                            <input
+                                type="url"
+                                id="website">
+
+                        </div>
+
+
+                        <div class="form-group full">
+
+                            <label>
+                                Institute Logo Hosted Image URL
+                            </label>
+
+                            <input
+                                type="url"
+                                id="logoUrl"
+                                placeholder="https://example.com/logo.png">
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Principal / Head Name
+                            </label>
+
+                            <input
+                                id="principal">
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label>
+                                Academic Session
+                            </label>
+
+                            <input
+                                id="academicSession"
+                                placeholder="2026-27">
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="logo-preview-box">
+
+                        <p>Logo Preview</p>
+
+                        <img
+                            id="logoPreview"
+                            src="https://via.placeholder.com/150"
+                            alt="Institute Logo">
+
+                    </div>
+
+
+                    <div id="settingsMessage"
+                         class="message">
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="primary-btn save-settings">
+
+                        Save Institute Settings
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script type="module"
+        src="js/settings.js">
+</script>
+
+</body>
+
+</html>
