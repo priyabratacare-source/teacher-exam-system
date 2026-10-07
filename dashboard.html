@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Teacher Dashboard</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="app">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-small">
+                🎓
+            </div>
+
+            <div>
+                <strong>Exam System</strong>
+                <small>Teacher Panel</small>
+            </div>
+
+        </div>
+
+        <nav>
+
+            <a href="dashboard.html"
+               class="nav-link active">
+
+                🏠 Dashboard
+
+            </a>
+
+            <a href="students.html"
+               class="nav-link">
+
+                👨‍🎓 Students
+
+            </a>
+
+            <a href="#"
+               class="nav-link disabled">
+
+                📝 Exams
+                <span>Coming</span>
+
+            </a>
+
+            <a href="#"
+               class="nav-link disabled">
+
+                📊 Marks Entry
+                <span>Coming</span>
+
+            </a>
+
+            <a href="#"
+               class="nav-link disabled">
+
+                📋 Results
+                <span>Coming</span>
+
+            </a>
+
+            <a href="settings.html"
+               class="nav-link">
+
+                ⚙️ Institute Settings
+
+            </a>
+
+        </nav>
+
+        <button id="logoutBtn"
+                class="logout-btn">
+
+            🚪 Logout
+
+        </button>
+
+    </aside>
+
+
+    <main class="main">
+
+        <header class="topbar">
+
+            <div>
+
+                <h2>Dashboard</h2>
+
+                <p id="instituteName">
+                    Student Examination Management
+                </p>
+
+            </div>
+
+            <div class="teacher-info">
+
+                <div class="avatar">
+                    T
+                </div>
+
+                <div>
+
+                    <strong id="teacherEmail">
+                        Teacher
+                    </strong>
+
+                    <small>
+                        Administrator
+                    </small>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <section class="content">
+
+            <div class="welcome-card">
+
+                <div>
+
+                    <h1>
+                        Welcome to Teacher Panel 👋
+                    </h1>
+
+                    <p>
+                        Manage students and examination
+                        records from one place.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        👨‍🎓
+                    </div>
+
+                    <div>
+
+                        <span>Total Students</span>
+
+                        <strong id="studentCount">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        📝
+                    </div>
+
+                    <div>
+
+                        <span>Total Exams</span>
+
+                        <strong>
+                            0
+                        </strong>
+
+                        <small>
+                            Coming in next update
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">
+                        📊
+                    </div>
+
+                    <div>
+
+                        <span>Published Results</span>
+
+                        <strong>
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="dashboard-grid">
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <h3>Student Management</h3>
+
+                            <p>
+                                Add and manage student records.
+                            </p>
+
+                        </div>
+
+                        <a href="students.html"
+                           class="small-btn">
+
+                            Manage Students
+
+                        </a>
+
+                    </div>
+
+                    <div class="empty-box">
+
+                        <div class="large-icon">
+                            👨‍🎓
+                        </div>
+
+                        <h3>
+                            Student Database
+                        </h3>
+
+                        <p>
+                            Add students with roll number,
+                            department, class, section,
+                            DOB and profile image.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <h3>Examination</h3>
+
+                            <p>
+                                Examination module
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                    <div class="empty-box">
+
+                        <div class="large-icon">
+                            📝
+                        </div>
+
+                        <h3>
+                            Exam Management
+                        </h3>
+
+                        <p>
+                            Exam creation and marks entry
+                            will be added next.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script type="module"
+        src="js/dashboard.js">
+</script>
+
+</body>
+
+</html>
