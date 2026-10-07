@@ -7,119 +7,520 @@
 
     <meta
         name="viewport"
-        content="width=device-width, initial-scale=1.0">
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <meta
-        name="description"
-        content="Student Examination Management System - Examination Management">
+    <title>
+        Exams | Student Examination Management
+    </title>
 
-    <title>Exams | Examination Management System</title>
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
 
     <link
         rel="stylesheet"
-        href="css/style.css">
+        href="css/style.css"
+    >
+
+    <style>
+
+        .exam-page {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .exam-page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .exam-page-header h1 {
+            margin: 0 0 6px;
+        }
+
+        .exam-page-header p {
+            margin: 0;
+            color: #64748b;
+        }
+
+        .exam-builder,
+        .created-exams-card {
+            background: #ffffff;
+            border: 1px solid #e5e7eb;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+
+        .exam-section {
+            padding: 24px;
+            border-bottom: 1px solid #eef2f7;
+        }
+
+        .exam-section:last-child {
+            border-bottom: 0;
+        }
+
+        .exam-section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .exam-section-title h2 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .exam-section-title p {
+            margin: 5px 0 0;
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        .exam-info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .exam-field {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .exam-field label {
+            font-size: 13px;
+            font-weight: 600;
+            color: #334155;
+        }
+
+        .exam-field input,
+        .exam-field select {
+            width: 100%;
+            min-height: 46px;
+            border: 1px solid #dbe3ef;
+            border-radius: 10px;
+            padding: 0 13px;
+            font-family: inherit;
+            font-size: 14px;
+            color: #0f172a;
+            background: #fff;
+            outline: none;
+            transition: .2s ease;
+            box-sizing: border-box;
+        }
+
+        .exam-field input:focus,
+        .exam-field select:focus {
+            border-color: #2563eb;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, .10);
+        }
+
+        .subjects-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 18px;
+        }
+
+        .subjects-header h2 {
+            margin: 0;
+        }
+
+        .subjects-header p {
+            margin: 5px 0 0;
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        .subjects-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .subject-empty {
+            border: 1px dashed #cbd5e1;
+            border-radius: 14px;
+            padding: 35px 20px;
+            text-align: center;
+            color: #64748b;
+            background: #f8fafc;
+        }
+
+        .subject-empty-icon {
+            font-size: 34px;
+            margin-bottom: 10px;
+        }
+
+        .subject-empty strong {
+            display: block;
+            color: #334155;
+            margin-bottom: 5px;
+        }
+
+        .exam-subject-card {
+            border: 1px solid #e2e8f0;
+            background: #f8fafc;
+            border-radius: 14px;
+            padding: 18px;
+        }
+
+        .subject-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .subject-number {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1d4ed8;
+        }
+
+        .remove-subject {
+            border: 0;
+            background: #fee2e2;
+            color: #b91c1c;
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        .remove-subject:hover {
+            background: #fecaca;
+        }
+
+        .subject-fields {
+            display: grid;
+            grid-template-columns: 2fr 1.2fr 1fr 1fr;
+            gap: 14px;
+        }
+
+        .subject-checkboxes {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: #334155;
+            font-weight: 500;
+        }
+
+        .check-item input {
+            width: 17px;
+            height: 17px;
+            accent-color: #2563eb;
+        }
+
+        .exam-form-footer {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 12px;
+            padding: 20px 24px;
+            background: #f8fafc;
+        }
+
+        .exam-message {
+            margin-right: auto;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .message-error {
+            color: #dc2626;
+        }
+
+        .message-success {
+            color: #16a34a;
+        }
+
+        .created-exams-header {
+            padding: 22px 24px;
+            border-bottom: 1px solid #eef2f7;
+        }
+
+        .created-exams-header h2 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .created-exams-header p {
+            margin: 5px 0 0;
+            color: #64748b;
+            font-size: 13px;
+        }
+
+        #examList {
+            padding: 20px 24px;
+        }
+
+        .exam-list-item {
+            border: 1px solid #e2e8f0;
+            border-radius: 13px;
+            padding: 18px;
+            margin-bottom: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            background: #fff;
+        }
+
+        .exam-list-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .exam-list-info h3 {
+            margin: 0 0 7px;
+            font-size: 16px;
+        }
+
+        .exam-list-meta {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            color: #64748b;
+            font-size: 12px;
+        }
+
+        .exam-status {
+            display: inline-flex;
+            align-items: center;
+            padding: 6px 10px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .exam-status.draft {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .exam-status.published {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .exam-status.finalized {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        @media (max-width: 1000px) {
+
+            .exam-info-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .subject-fields {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+        @media (max-width: 700px) {
+
+            .exam-page-header {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .exam-info-grid,
+            .subject-fields {
+                grid-template-columns: 1fr;
+            }
+
+            .subjects-header {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .exam-list-item {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            .exam-form-footer {
+                align-items: stretch;
+                flex-direction: column;
+            }
+
+            .exam-message {
+                margin-right: 0;
+            }
+
+        }
+
+    </style>
 
 </head>
 
 
 <body>
 
-<div class="app">
+<div class="app-layout">
 
 
-    <!-- =================================================
-         SIDEBAR
-    ================================================== -->
-
+    <!-- SIDEBAR -->
     <aside class="sidebar">
 
-
-        <div class="brand">
+        <div class="sidebar-brand">
 
             <div class="brand-icon">
-                E
+                SE
             </div>
 
             <div>
-
-                <h2>
-                    Exam System
-                </h2>
-
-                <span>
-                    Teacher Panel
-                </span>
-
+                <h2>Exam System</h2>
+                <span>Management Panel</span>
             </div>
 
         </div>
 
 
+        <nav class="sidebar-nav">
 
-        <nav>
-
-            <a href="dashboard.html">
-                Dashboard
+            <a
+                href="dashboard.html"
+                class="nav-link"
+            >
+                <span class="nav-icon">⌂</span>
+                <span>Dashboard</span>
             </a>
 
-            <a href="students.html">
-                Students
+
+            <a
+                href="students.html"
+                class="nav-link"
+            >
+                <span class="nav-icon">♙</span>
+                <span>Students</span>
             </a>
+
 
             <a
                 href="exams.html"
-                class="active">
-
-                Exams
-
+                class="nav-link active"
+            >
+                <span class="nav-icon">▣</span>
+                <span>Exams</span>
             </a>
 
-            <a href="#">
-                Marks Entry
-            </a>
-
-            <a href="#">
-                Results
-            </a>
-
-            <a href="settings.html">
-                Institute Settings
-            </a>
 
             <a
                 href="#"
-                id="logoutBtn">
+                class="nav-link"
+            >
+                <span class="nav-icon">✎</span>
+                <span>Marks Entry</span>
+            </a>
 
-                Logout
 
+            <a
+                href="#"
+                class="nav-link"
+            >
+                <span class="nav-icon">▤</span>
+                <span>Results</span>
+            </a>
+
+
+            <a
+                href="settings.html"
+                class="nav-link"
+            >
+                <span class="nav-icon">⚙</span>
+                <span>Institute Settings</span>
             </a>
 
         </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <button
+                id="logoutBtn"
+                class="logout-btn"
+            >
+                <span>↪</span>
+                Logout
+            </button>
+
+        </div>
 
     </aside>
 
 
 
-    <!-- =================================================
-         MAIN
-    ================================================== -->
-
-    <main class="main">
-
-
-        <!-- TOPBAR -->
+    <!-- MAIN -->
+    <main class="main-content">
 
         <header class="topbar">
 
             <div>
 
-                <h1>
-                    Create Exam
-                </h1>
+                <h1>Examinations</h1>
 
                 <p>
-                    Create examination and configure subjects
+                    Create and manage examination structures.
                 </p>
+
+            </div>
+
+
+            <div class="teacher-profile">
+
+                <div class="teacher-avatar">
+                    E
+                </div>
+
+                <div class="teacher-details">
+
+                    <strong>
+                        Examination Admin
+                    </strong>
+
+                    <span>
+                        Teacher Panel
+                    </span>
+
+                </div>
 
             </div>
 
@@ -127,196 +528,206 @@
 
 
 
-        <!-- =================================================
-             EXAM INFORMATION
-        ================================================== -->
-
-        <section class="card">
+        <section class="page-content exam-page">
 
 
-            <div class="section-title">
+            <!-- PAGE HEADER -->
+            <div class="exam-page-header">
 
                 <div>
 
-                    <h2>
-                        Exam Information
-                    </h2>
+                    <h1>
+                        Create Examination
+                    </h1>
 
                     <p>
-                        Enter the basic information for this examination
+                        Configure examination details and subjects.
                     </p>
 
                 </div>
-
-
-                <span class="step-badge">
-                    Step 1
-                </span>
 
             </div>
 
 
 
-            <form id="examForm">
+            <!-- EXAM BUILDER -->
+            <form
+                id="examForm"
+                class="exam-builder"
+            >
 
 
-                <div class="form-grid">
+                <!-- EXAM INFORMATION -->
+                <div class="exam-section">
 
+                    <div class="exam-section-title">
 
-                    <!-- EXAM NAME -->
+                        <div>
 
-                    <div class="form-group">
+                            <h2>
+                                Examination Information
+                            </h2>
 
-                        <label for="examName">
-                            Exam Name *
-                        </label>
+                            <p>
+                                Enter the basic information for this examination.
+                            </p>
 
-                        <input
-                            type="text"
-                            id="examName"
-                            placeholder="Example: First Semester Examination 2026"
-                            required>
-
-                    </div>
-
-
-
-                    <!-- COURSE -->
-
-                    <div class="form-group">
-
-                        <label for="examCourse">
-                            Class / Course *
-                        </label>
-
-                        <input
-                            type="text"
-                            id="examCourse"
-                            placeholder="Example: B.Tech Civil Engineering"
-                            required>
+                        </div>
 
                     </div>
 
 
-
-                    <!-- DEPARTMENT -->
-
-                    <div class="form-group">
-
-                        <label for="examDepartment">
-                            Department *
-                        </label>
-
-                        <input
-                            type="text"
-                            id="examDepartment"
-                            placeholder="Example: Civil Engineering"
-                            required>
-
-                    </div>
+                    <div class="exam-info-grid">
 
 
+                        <div class="exam-field">
 
-                    <!-- SEMESTER -->
+                            <label for="examName">
+                                Examination Name *
+                            </label>
 
-                    <div class="form-group">
+                            <input
+                                type="text"
+                                id="examName"
+                                placeholder="Example: Semester Examination 2026"
+                                required
+                            >
 
-                        <label for="examSemester">
-                            Semester / Year
-                        </label>
-
-                        <select id="examSemester">
-
-                            <option value="">
-                                Select Semester
-                            </option>
-
-                            <option value="1st Semester">
-                                1st Semester
-                            </option>
-
-                            <option value="2nd Semester">
-                                2nd Semester
-                            </option>
-
-                            <option value="3rd Semester">
-                                3rd Semester
-                            </option>
-
-                            <option value="4th Semester">
-                                4th Semester
-                            </option>
-
-                            <option value="5th Semester">
-                                5th Semester
-                            </option>
-
-                            <option value="6th Semester">
-                                6th Semester
-                            </option>
-
-                            <option value="7th Semester">
-                                7th Semester
-                            </option>
-
-                            <option value="8th Semester">
-                                8th Semester
-                            </option>
-
-                        </select>
-
-                    </div>
+                        </div>
 
 
+                        <div class="exam-field">
 
-                    <!-- SECTION -->
+                            <label for="examCourse">
+                                Course / Class *
+                            </label>
 
-                    <div class="form-group">
+                            <input
+                                type="text"
+                                id="examCourse"
+                                placeholder="Example: B.Tech"
+                                required
+                            >
 
-                        <label for="examSection">
-                            Section
-                        </label>
-
-                        <select id="examSection">
-
-                            <option value="">
-                                All Sections
-                            </option>
-
-                            <option value="A">
-                                Section A
-                            </option>
-
-                            <option value="B">
-                                Section B
-                            </option>
-
-                            <option value="C">
-                                Section C
-                            </option>
-
-                            <option value="D">
-                                Section D
-                            </option>
-
-                        </select>
-
-                    </div>
+                        </div>
 
 
+                        <div class="exam-field">
 
-                    <!-- SESSION -->
+                            <label for="examDepartment">
+                                Department *
+                            </label>
 
-                    <div class="form-group">
+                            <input
+                                type="text"
+                                id="examDepartment"
+                                placeholder="Example: Civil Engineering"
+                                required
+                            >
 
-                        <label for="examSession">
-                            Academic Session
-                        </label>
+                        </div>
 
-                        <input
-                            type="text"
-                            id="examSession"
-                            placeholder="Example: 2026-27">
+
+                        <div class="exam-field">
+
+                            <label for="examSemester">
+                                Semester *
+                            </label>
+
+                            <select
+                                id="examSemester"
+                                required
+                            >
+
+                                <option value="">
+                                    Select Semester
+                                </option>
+
+                                <option value="1st Semester">
+                                    1st Semester
+                                </option>
+
+                                <option value="2nd Semester">
+                                    2nd Semester
+                                </option>
+
+                                <option value="3rd Semester">
+                                    3rd Semester
+                                </option>
+
+                                <option value="4th Semester">
+                                    4th Semester
+                                </option>
+
+                                <option value="5th Semester">
+                                    5th Semester
+                                </option>
+
+                                <option value="6th Semester">
+                                    6th Semester
+                                </option>
+
+                                <option value="7th Semester">
+                                    7th Semester
+                                </option>
+
+                                <option value="8th Semester">
+                                    8th Semester
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="exam-field">
+
+                            <label for="examSection">
+                                Section
+                            </label>
+
+                            <select id="examSection">
+
+                                <option value="All">
+                                    All Sections
+                                </option>
+
+                                <option value="A">
+                                    Section A
+                                </option>
+
+                                <option value="B">
+                                    Section B
+                                </option>
+
+                                <option value="C">
+                                    Section C
+                                </option>
+
+                                <option value="D">
+                                    Section D
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="exam-field">
+
+                            <label for="examSession">
+                                Academic Session *
+                            </label>
+
+                            <input
+                                type="text"
+                                id="examSession"
+                                placeholder="2026-27"
+                                required
+                            >
+
+                        </div>
+
 
                     </div>
 
@@ -324,158 +735,140 @@
 
 
 
-                <!-- =================================================
-                     SUBJECT SECTION
-                ================================================== -->
+                <!-- SUBJECTS -->
+                <div class="exam-section">
 
-                <div class="subjects-header">
+                    <div class="subjects-header">
+
+                        <div>
+
+                            <h2>
+                                Examination Subjects
+                            </h2>
+
+                            <p>
+                                Add every subject included in this examination.
+                            </p>
+
+                        </div>
 
 
-                    <div>
-
-                        <h2>
-                            Subjects
-                        </h2>
-
-                        <p>
-                            Add all subjects included in this examination
-                        </p>
+                        <button
+                            type="button"
+                            id="addSubjectBtn"
+                            class="btn btn-primary"
+                        >
+                            + Add Subject
+                        </button>
 
                     </div>
+
+
+                    <div
+                        id="subjectsContainer"
+                        class="subjects-container"
+                    >
+
+                        <div class="subject-empty">
+
+                            <div class="subject-empty-icon">
+                                📚
+                            </div>
+
+                            <strong>
+                                No subjects added yet
+                            </strong>
+
+                            <span>
+                                Click “Add Subject” to configure the first subject.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- FORM FOOTER -->
+                <div class="exam-form-footer">
+
+                    <div
+                        id="examMessage"
+                        class="exam-message"
+                    ></div>
 
 
                     <button
                         type="button"
-                        class="btn-primary"
-                        id="addSubjectBtn">
-
-                        + Add Subject
-
-                    </button>
-
-                </div>
-
-
-
-                <!-- SUBJECTS WILL APPEAR HERE -->
-
-                <div
-                    id="subjectsContainer"
-                    class="subjects-container">
-
-
-                    <div class="empty-subjects">
-
-                        <strong>
-                            No subjects added yet.
-                        </strong>
-
-                        <br>
-
-                        Click
-                        <strong>+ Add Subject</strong>
-                        to add the first subject.
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- MESSAGE -->
-
-                <div
-                    id="examMessage"
-                    class="message">
-                </div>
-
-
-
-                <!-- ACTIONS -->
-
-                <div class="exam-actions">
-
-                    <button
-                        type="button"
-                        class="btn-secondary"
-                        onclick="window.location.href='dashboard.html'">
-
+                        class="btn btn-secondary"
+                        id="cancelExamBtn"
+                    >
                         Cancel
-
                     </button>
 
 
                     <button
                         type="submit"
-                        class="btn-primary">
-
-                        Save Draft
-
+                        class="btn btn-primary"
+                    >
+                        Save Examination
                     </button>
 
                 </div>
 
+
             </form>
 
-        </section>
 
 
+            <!-- CREATED EXAMS -->
+            <div class="created-exams-card">
 
-        <!-- =================================================
-             CREATED EXAMS
-        ================================================== -->
-
-        <section class="card">
-
-
-            <div class="section-title">
-
-                <div>
+                <div class="created-exams-header">
 
                     <h2>
-                        Created Exams
+                        Created Examinations
                     </h2>
 
                     <p>
-                        Examination drafts created by teachers
+                        Previously created examination structures.
                     </p>
 
                 </div>
 
-            </div>
 
+                <div id="examList">
 
+                    <div class="subject-empty">
 
-            <div
-                id="examList"
-                class="exam-list">
+                        <div class="subject-empty-icon">
+                            📋
+                        </div>
 
-                <div class="loading">
+                        <strong>
+                            Loading examinations...
+                        </strong>
 
-                    Loading exams...
+                    </div>
 
                 </div>
 
             </div>
 
-        </section>
 
+        </section>
 
     </main>
 
 </div>
 
 
-
-<!-- =================================================
-     JAVASCRIPT
-================================================== -->
-
 <script
     type="module"
-    src="js/exams.js">
-</script>
-
+    src="js/exams.js"
+></script>
 
 </body>
 
