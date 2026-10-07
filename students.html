@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Students | Teacher Panel</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+</head>
+
+<body>
+
+<div class="app">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-small">
+                🎓
+            </div>
+
+            <div>
+                <strong>Exam System</strong>
+                <small>Teacher Panel</small>
+            </div>
+
+        </div>
+
+        <nav>
+
+            <a href="dashboard.html"
+               class="nav-link">
+
+                🏠 Dashboard
+
+            </a>
+
+            <a href="students.html"
+               class="nav-link active">
+
+                👨‍🎓 Students
+
+            </a>
+
+            <a href="#"
+               class="nav-link disabled">
+
+                📝 Exams
+                <span>Coming</span>
+
+            </a>
+
+            <a href="#"
+               class="nav-link disabled">
+
+                📊 Marks Entry
+                <span>Coming</span>
+
+            </a>
+
+            <a href="#"
+               class="nav-link disabled">
+
+                📋 Results
+                <span>Coming</span>
+
+            </a>
+
+            <a href="settings.html"
+               class="nav-link">
+
+                ⚙️ Institute Settings
+
+            </a>
+
+        </nav>
+
+        <button id="logoutBtn"
+                class="logout-btn">
+
+            🚪 Logout
+
+        </button>
+
+    </aside>
+
+
+    <main class="main">
+
+        <header class="topbar">
+
+            <div>
+
+                <h2>Students</h2>
+
+                <p>
+                    Student Database Management
+                </p>
+
+            </div>
+
+            <button
+                id="addStudentBtn"
+                class="primary-btn header-btn">
+
+                + Add Student
+
+            </button>
+
+        </header>
+
+
+        <section class="content">
+
+
+            <div class="toolbar">
+
+                <input
+                    type="search"
+                    id="searchStudent"
+                    placeholder="Search by name, roll, department..."
+                >
+
+                <select id="departmentFilter">
+
+                    <option value="">
+                        All Departments
+                    </option>
+
+                </select>
+
+                <select id="sectionFilter">
+
+                    <option value="">
+                        All Sections
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <h3>
+                            Student List
+                        </h3>
+
+                        <p id="studentTotal">
+                            Loading students...
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Photo</th>
+
+                                <th>Roll</th>
+
+                                <th>Name</th>
+
+                                <th>Department</th>
+
+                                <th>Class</th>
+
+                                <th>Section</th>
+
+                                <th>DOB</th>
+
+                                <th>Actions</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="studentTable">
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- STUDENT MODAL -->
+
+<div id="studentModal"
+     class="modal">
+
+    <div class="modal-card">
+
+        <div class="modal-header">
+
+            <div>
+
+                <h2 id="modalTitle">
+                    Add Student
+                </h2>
+
+                <p>
+                    Enter complete student information.
+                </p>
+
+            </div>
+
+            <button
+                id="closeModal"
+                class="close-btn">
+
+                ×
+
+            </button>
+
+        </div>
+
+
+        <form id="studentForm">
+
+            <input
+                type="hidden"
+                id="studentId"
+            >
+
+
+            <div class="photo-preview">
+
+                <img
+                    id="photoPreview"
+                    src="https://via.placeholder.com/100"
+                    alt="Student">
+
+            </div>
+
+
+            <div class="form-grid">
+
+
+                <div class="form-group">
+
+                    <label>Student Name *</label>
+
+                    <input
+                        id="studentName"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Roll Number *</label>
+
+                    <input
+                        id="rollNo"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Registration Number</label>
+
+                    <input
+                        id="registrationNo"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Date of Birth *</label>
+
+                    <input
+                        type="date"
+                        id="dob"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Department *</label>
+
+                    <input
+                        id="department"
+                        placeholder="Civil Engineering"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Class / Course *</label>
+
+                    <input
+                        id="course"
+                        placeholder="B.Tech"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Semester / Year</label>
+
+                    <input
+                        id="semester"
+                        placeholder="1st Semester"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Section</label>
+
+                    <input
+                        id="section"
+                        placeholder="A"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Session</label>
+
+                    <input
+                        id="session"
+                        placeholder="2026-27"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Gender</label>
+
+                    <select id="gender">
+
+                        <option value="">
+                            Select
+                        </option>
+
+                        <option value="Male">
+                            Male
+                        </option>
+
+                        <option value="Female">
+                            Female
+                        </option>
+
+                        <option value="Other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Email</label>
+
+                    <input
+                        type="email"
+                        id="email"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>Phone</label>
+
+                    <input
+                        id="phone"
+                    >
+
+                </div>
+
+
+                <div class="form-group full">
+
+                    <label>
+                        Student Image Hosted URL
+                    </label>
+
+                    <input
+                        type="url"
+                        id="imageUrl"
+                        placeholder="https://example.com/student.jpg"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div id="formMessage"
+                 class="message">
+            </div>
+
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    id="cancelBtn"
+                    class="secondary-btn">
+
+                    Cancel
+
+                </button>
+
+                <button
+                    type="submit"
+                    class="primary-btn">
+
+                    Save Student
+
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script type="module"
+        src="js/students.js">
+</script>
+
+</body>
+
+</html>
