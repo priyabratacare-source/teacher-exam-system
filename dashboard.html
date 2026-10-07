@@ -1,128 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Student Examination Management</title>
 
-    <title>Teacher Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet"
-          href="css/style.css">
-
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-<div class="app">
+<div class="app-layout">
 
+    <!-- SIDEBAR -->
     <aside class="sidebar">
 
         <div class="sidebar-brand">
-
-            <div class="brand-small">
-                🎓
-            </div>
+            <div class="brand-icon">SE</div>
 
             <div>
-                <strong>Exam System</strong>
-                <small>Teacher Panel</small>
+                <h2>Exam System</h2>
+                <span>Management Panel</span>
             </div>
-
         </div>
 
-        <nav>
+        <nav class="sidebar-nav">
 
-            <a href="dashboard.html"
-               class="nav-link active">
-
-                🏠 Dashboard
-
+            <a href="dashboard.html" class="nav-link active">
+                <span class="nav-icon">⌂</span>
+                <span>Dashboard</span>
             </a>
 
-            <a href="students.html"
-               class="nav-link">
-
-                👨‍🎓 Students
-
+            <a href="students.html" class="nav-link">
+                <span class="nav-icon">♙</span>
+                <span>Students</span>
             </a>
 
-            <a href="#"
-               class="nav-link disabled">
-
-                📝 Exams
-                <span>Coming</span>
-
+            <a href="exams.html" class="nav-link">
+                <span class="nav-icon">▣</span>
+                <span>Exams</span>
             </a>
 
-            <a href="#"
-               class="nav-link disabled">
-
-                📊 Marks Entry
-                <span>Coming</span>
-
+            <a href="#" class="nav-link">
+                <span class="nav-icon">✎</span>
+                <span>Marks Entry</span>
             </a>
 
-            <a href="#"
-               class="nav-link disabled">
-
-                📋 Results
-                <span>Coming</span>
-
+            <a href="#" class="nav-link">
+                <span class="nav-icon">▤</span>
+                <span>Results</span>
             </a>
 
-            <a href="settings.html"
-               class="nav-link">
-
-                ⚙️ Institute Settings
-
+            <a href="settings.html" class="nav-link">
+                <span class="nav-icon">⚙</span>
+                <span>Institute Settings</span>
             </a>
 
         </nav>
 
-        <button id="logoutBtn"
-                class="logout-btn">
+        <div class="sidebar-bottom">
 
-            🚪 Logout
+            <button id="logoutBtn" class="logout-btn">
+                <span>↪</span>
+                Logout
+            </button>
 
-        </button>
+        </div>
 
     </aside>
 
 
-    <main class="main">
+    <!-- MAIN -->
+    <main class="main-content">
 
+        <!-- TOPBAR -->
         <header class="topbar">
 
             <div>
-
-                <h2>Dashboard</h2>
-
-                <p id="instituteName">
-                    Student Examination Management
-                </p>
-
+                <h1>Dashboard</h1>
+                <p>Student Examination Management System</p>
             </div>
 
-            <div class="teacher-info">
+            <div class="topbar-right">
 
-                <div class="avatar">
-                    T
-                </div>
+                <div class="teacher-profile">
+                    <div class="teacher-avatar" id="teacherAvatar">
+                        T
+                    </div>
 
-                <div>
+                    <div class="teacher-details">
+                        <strong id="teacherName">
+                            Teacher
+                        </strong>
 
-                    <strong id="teacherEmail">
-                        Teacher
-                    </strong>
-
-                    <small>
-                        Administrator
-                    </small>
-
+                        <span id="teacherEmail">
+                            Loading...
+                        </span>
+                    </div>
                 </div>
 
             </div>
@@ -130,83 +109,228 @@
         </header>
 
 
-        <section class="content">
+        <!-- DASHBOARD CONTENT -->
+        <section class="page-content">
 
+            <!-- WELCOME -->
             <div class="welcome-card">
 
                 <div>
+                    <span class="welcome-label">WELCOME BACK</span>
 
-                    <h1>
-                        Welcome to Teacher Panel 👋
-                    </h1>
+                    <h2>
+                        Examination Management Dashboard
+                    </h2>
 
                     <p>
-                        Manage students and examination
-                        records from one place.
+                        Manage students, examinations, marks and results
+                        from one centralized system.
                     </p>
+                </div>
 
+                <div class="welcome-icon">
+                    🎓
                 </div>
 
             </div>
 
 
+            <!-- STATISTICS -->
             <div class="stats-grid">
 
                 <div class="stat-card">
 
-                    <div class="stat-icon blue">
+                    <div class="stat-icon">
+                        👨‍🎓
+                    </div>
+
+                    <div class="stat-content">
+                        <span>Total Students</span>
+                        <strong id="totalStudents">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        📚
+                    </div>
+
+                    <div class="stat-content">
+                        <span>Total Exams</span>
+                        <strong id="totalExams">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        📝
+                    </div>
+
+                    <div class="stat-content">
+                        <span>Draft Exams</span>
+                        <strong id="draftExams">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ✅
+                    </div>
+
+                    <div class="stat-content">
+                        <span>Published Results</span>
+                        <strong id="publishedResults">0</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUICK ACTIONS -->
+            <div class="section-heading">
+
+                <div>
+                    <h2>Quick Actions</h2>
+                    <p>Frequently used examination management tools.</p>
+                </div>
+
+            </div>
+
+
+            <div class="quick-actions-grid">
+
+                <a href="students.html" class="quick-action-card">
+
+                    <div class="quick-action-icon">
                         👨‍🎓
                     </div>
 
                     <div>
+                        <h3>Manage Students</h3>
+                        <p>Add, edit and manage student records.</p>
+                    </div>
 
-                        <span>Total Students</span>
+                    <span class="quick-arrow">→</span>
 
-                        <strong id="studentCount">
-                            0
-                        </strong>
+                </a>
 
+
+                <a href="exams.html" class="quick-action-card">
+
+                    <div class="quick-action-icon">
+                        📋
+                    </div>
+
+                    <div>
+                        <h3>Create Examination</h3>
+                        <p>Create exams and configure subjects.</p>
+                    </div>
+
+                    <span class="quick-arrow">→</span>
+
+                </a>
+
+
+                <a href="#" class="quick-action-card">
+
+                    <div class="quick-action-icon">
+                        ✏️
+                    </div>
+
+                    <div>
+                        <h3>Enter Marks</h3>
+                        <p>Enter and manage examination marks.</p>
+                    </div>
+
+                    <span class="quick-arrow">→</span>
+
+                </a>
+
+
+                <a href="settings.html" class="quick-action-card">
+
+                    <div class="quick-action-icon">
+                        ⚙️
+                    </div>
+
+                    <div>
+                        <h3>Institute Settings</h3>
+                        <p>Manage institute information and branding.</p>
+                    </div>
+
+                    <span class="quick-arrow">→</span>
+
+                </a>
+
+            </div>
+
+
+            <!-- INSTITUTE INFORMATION -->
+            <div class="section-heading">
+
+                <div>
+                    <h2>Institute Information</h2>
+                    <p>Current institute configuration.</p>
+                </div>
+
+                <a href="settings.html" class="btn btn-secondary">
+                    Edit Settings
+                </a>
+
+            </div>
+
+
+            <div class="institute-card">
+
+                <div class="institute-logo-box">
+
+                    <img
+                        id="instituteLogo"
+                        src=""
+                        alt="Institute Logo"
+                        style="display:none;"
+                    >
+
+                    <div id="defaultInstituteLogo">
+                        🏫
                     </div>
 
                 </div>
 
 
-                <div class="stat-card">
+                <div class="institute-info">
 
-                    <div class="stat-icon green">
-                        📝
-                    </div>
+                    <h2 id="instituteName">
+                        Institute Name
+                    </h2>
 
-                    <div>
+                    <p id="instituteAddress">
+                        Institute address not configured.
+                    </p>
 
-                        <span>Total Exams</span>
+                    <div class="institute-meta">
 
-                        <strong>
-                            0
-                        </strong>
+                        <span id="instituteContact">
+                            Contact: —
+                        </span>
 
-                        <small>
-                            Coming in next update
-                        </small>
+                        <span id="instituteWebsite">
+                            Website: —
+                        </span>
 
-                    </div>
-
-                </div>
-
-
-                <div class="stat-card">
-
-                    <div class="stat-icon orange">
-                        📊
-                    </div>
-
-                    <div>
-
-                        <span>Published Results</span>
-
-                        <strong>
-                            0
-                        </strong>
+                        <span id="instituteSession">
+                            Session: —
+                        </span>
 
                     </div>
 
@@ -215,83 +339,52 @@
             </div>
 
 
-            <div class="dashboard-grid">
+            <!-- SYSTEM STATUS -->
+            <div class="section-heading">
 
-                <div class="panel">
+                <div>
+                    <h2>System Status</h2>
+                    <p>Current application status.</p>
+                </div>
 
-                    <div class="panel-header">
+            </div>
 
-                        <div>
 
-                            <h3>Student Management</h3>
+            <div class="system-status-grid">
 
-                            <p>
-                                Add and manage student records.
-                            </p>
+                <div class="status-card">
 
-                        </div>
+                    <div class="status-dot online"></div>
 
-                        <a href="students.html"
-                           class="small-btn">
-
-                            Manage Students
-
-                        </a>
-
-                    </div>
-
-                    <div class="empty-box">
-
-                        <div class="large-icon">
-                            👨‍🎓
-                        </div>
-
-                        <h3>
-                            Student Database
-                        </h3>
-
-                        <p>
-                            Add students with roll number,
-                            department, class, section,
-                            DOB and profile image.
-                        </p>
-
+                    <div>
+                        <strong>Teacher Authentication</strong>
+                        <span id="authStatus">
+                            Checking...
+                        </span>
                     </div>
 
                 </div>
 
 
-                <div class="panel">
+                <div class="status-card">
 
-                    <div class="panel-header">
+                    <div class="status-dot online"></div>
 
-                        <div>
-
-                            <h3>Examination</h3>
-
-                            <p>
-                                Examination module
-                            </p>
-
-                        </div>
-
+                    <div>
+                        <strong>Firestore Database</strong>
+                        <span>Connected</span>
                     </div>
 
-                    <div class="empty-box">
+                </div>
 
-                        <div class="large-icon">
-                            📝
-                        </div>
 
-                        <h3>
-                            Exam Management
-                        </h3>
+                <div class="status-card">
 
-                        <p>
-                            Exam creation and marks entry
-                            will be added next.
-                        </p>
+                    <div class="status-dot online"></div>
 
+                    <div>
+                        <strong>Management Panel</strong>
+                        <span>Operational</span>
                     </div>
 
                 </div>
@@ -304,10 +397,8 @@
 
 </div>
 
-<script type="module"
-        src="js/dashboard.js">
-</script>
+
+<script type="module" src="js/dashboard.js"></script>
 
 </body>
-
 </html>
